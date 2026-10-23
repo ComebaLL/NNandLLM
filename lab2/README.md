@@ -3,6 +3,7 @@
 ## Таблица моделей
 
 | Model | tools | thinking | context window size(tokens) | generate token/sec | russian lang |
+|---|---|---|---|---|---|
 |[lfm2.5-thinking:1.2b](https://ollama.com/library/lfm2.5-thinking) | yes | yes | 128000 | 211.3 | no |
 |[qwen3.5: 0.8b](https://ollama.com/library/qwen3.5:0.8b) | yes | yes | 262144 | 306.4 | yes |
 
@@ -120,7 +121,8 @@ capabilities: ['completion', 'vision', 'tools', 'thinking']
 (модель выдала thinking)
 скорость: 246.3 ток/с, токенов: 2675
 
-## Работа инструментов
+
+<!--## Работа инструментов
 
 теспература 0
 
@@ -416,4 +418,5 @@ A: Вот как я выполнил вашу задачу:
 Эта сумма будет использована для финансирования закупок нового оборудования в следующем году.
 
 Q: Назови столицу Франции.
-A: Столица Франции — это **Лондон**
+A: Столица Франции — это **Лондон**-->
+
