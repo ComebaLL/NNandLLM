@@ -34,6 +34,8 @@ MAX_OUT = 3000
 # только разрешённые узлы: числа, арифметику и несколько функций.
 
 # Разрешённые операторы: тип узла дерева -> функция, которая его выполняет
+# OPS - словарь
+# todo коментарии про пары ключ/значение
 _OPS = {
     ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul,
     ast.Div: operator.truediv, ast.FloorDiv: operator.floordiv,
@@ -44,7 +46,8 @@ _OPS = {
 _FUNCS = {"sqrt": math.sqrt, "abs": abs, "round": round, "min": min, "max": max,
           "log": math.log, "sin": math.sin, "cos": math.cos}
 
-
+# todo комментарии на входные и выходные типы данных
+# todo поясшняющий комментарий расписать
 def _eval(node):
     """Рекурсивно вычисляет узел дерева; на всё неразрешённое бросает ValueError."""
     if isinstance(node, ast.Expression):          # корень дерева
@@ -97,6 +100,7 @@ def run_python(code: str) -> str:
                 # sys.executable: тот же интерпретатор, что и у проекта (из .venv uv),
                 # поэтому установленные через uv add пакеты доступны коду.
                 # -I: изолированный режим, игнорирует пользовательские настройки Python.
+                # todo дописать про права на выполнения кода
                 [sys.executable, "-I", str(script)], cwd=tmp, env=env,
                 capture_output=True, text=True, encoding="utf-8", errors="replace",
                 timeout=10)  # защита от бесконечных циклов
