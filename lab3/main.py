@@ -13,8 +13,10 @@ CLASS_CHOICES = list(NAME2ID)
 def detect(image, classes, max_per_class, conf):
     """Обработчик кнопки: принимает картинку и параметры из интерфейса,
     возвращает картинку с рамками и таблицу найденных объектов."""
+    # todo доабвить аннотаци типов
+    # аннотацию для возвращяемого типа
 
-    # Проверки ввода: gr.Error показывает пользователю сообщение в интерфейсе, а не падает с трассировкой
+    
     if image is None:
         raise gr.Error("Загрузите изображение")
     if not classes:
@@ -34,7 +36,7 @@ def detect(image, classes, max_per_class, conf):
     cls = result.boxes.cls.cpu().numpy().astype(int)
     scores = result.boxes.conf.cpu().numpy()
 
-    # Лимит на класс: у YOLO такого параметра нет, поэтому делаем вручную.
+    # Лимит на класс
     # Для каждого класса оставляем max_per_class рамок с наибольшей уверенностью.
     keep = []
     for c in np.unique(cls):
